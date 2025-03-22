@@ -2,41 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <!-- Project Identification -->
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId> <!-- Your group ID -->
-    <artifactId>greeting-servlet</artifactId> <!-- Your artifact ID -->
-    <version>1.0-SNAPSHOT</version> <!-- Project version -->
-
-    <!-- Packaging Type (this is typically 'jar' for Java projects) -->
+    <groupId>com.example</groupId> 
+    <artifactId>greeting-servlet</artifactId> 
+    <version>1.0-SNAPSHOT</version> 
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Jetty server dependency -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>11.0.6</version> <!-- Ensure this matches the Jetty version you need -->
+            <version>11.0.6</version> 
         </dependency>
-
-        <!-- Jetty servlet dependency -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
-            <version>11.0.6</version> <!-- Ensure this matches the Jetty version you need -->
+            <version>11.0.6</version> 
         </dependency>
-
-        <!-- Jakarta Servlet API dependency (required for Jetty 11 and above) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>5.0.0</version>
-            <scope>provided</scope> <!-- Scope is 'provided' because the server will provide the servlet container -->
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <!-- Build configurations -->
     <build>
         <plugins>
             <plugin>
@@ -51,8 +40,6 @@
                     </archive>
                 </configuration>
             </plugin>
-
-            <!-- exec-maven-plugin to run the EmbeddedJettyServer -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
