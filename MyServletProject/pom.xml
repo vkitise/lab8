@@ -45,7 +45,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
                 <configuration>
-                    <mainClass>com.example.EmbeddedJettyServer</mainClass> <!-- Specify the main class to run -->
+                    <mainClass>com.example.EmbeddedJettyServer</mainClass> 
                 </configuration>
             </plugin>
         </plugins>
