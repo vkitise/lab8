@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Project Identification -->
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId> <!-- Your group ID -->
+    <artifactId>greeting-servlet</artifactId> <!-- Your artifact ID -->
+    <version>1.0-SNAPSHOT</version> <!-- Project version -->
+
+    <!-- Packaging Type (this is typically 'jar' for Java projects) -->
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- Jetty server dependency -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>11.0.6</version> <!-- Ensure this matches the Jetty version you need -->
+        </dependency>
+
+        <!-- Jetty servlet dependency -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>11.0.6</version> <!-- Ensure this matches the Jetty version you need -->
+        </dependency>
+
+        <!-- Jakarta Servlet API dependency (required for Jetty 11 and above) -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope> <!-- Scope is 'provided' because the server will provide the servlet container -->
+        </dependency>
+    </dependencies>
+
+    <!-- Build configurations -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>com.example.EmbeddedJettyServer</Main-Class>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- exec-maven-plugin to run the EmbeddedJettyServer -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>com.example.EmbeddedJettyServer</mainClass> <!-- Specify the main class to run -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
